@@ -28,6 +28,7 @@ resource :offer, only: :show #, controller: :events
 #routes for USERS
 match '/user',       to: 'users#show'
 match '/user/all', to: 'users#index'
+#match '/users' to: 'static_pages#home'
 #match '/edit', to: 'users#edit'
 
 #routes i need for users 
