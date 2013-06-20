@@ -3,9 +3,7 @@ Spongebob::Application.routes.draw do
   
 #deafult page
 root to: 'static_pages#home'
-
-resources :users
-
+resources :users, only: [:show, :edit, :get]
 resources :events #do
 #resource :offers, only: :show
 #end 
