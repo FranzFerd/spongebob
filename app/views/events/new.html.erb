@@ -1,0 +1,90 @@
+<!--STEP1 create Event-->
+<%# provide(:title, 'Event erstellen') %>
+<div class="container">
+<!--SUBHEADER-->
+<h1>Erstelle Dein Event</h1>
+<!--Main Form Begins-->
+ <div class="span8 offset2">
+ <!--Progress Bar Step 1-->
+   <div class="progress">
+   <div class="bar" style="width: 25%;"></div>
+   </div>
+  <h5>1. Beschreibe dein Event möglichst genau für alle Sponsoren.</h5> <!--subheading-->
+  <!--Form Fields Step-1-->
+ <%= simple_form_for @event, :class=>"form-horizontal display-block" do |f| %>
+ <!--error messages-->
+    <% if @event.errors.any? %>
+    <div class="error_messages">
+    <h2><%= pluralize(@event.errors.count, "error") %> 
+      prohibited this user from being saved:</h2>
+    <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+    <% end %>
+  <!--end-->
+<!--Form-Fields start here-->
+<!--
+First Block (Basic)==============-->
+ <!--1. Title-->
+ <%= f.input :title, :input_html => { :class => "span8" },:label => 'Event Titel' ,:placeholder=>"Titel des Events"%>
+ <!--Description-->
+ <label>Beschreibung</label>
+ <%=f.text_area :description,:style => "width: 755px", :label => 'Beschreibung',:placeholder=>"Beschreibung"%>
+ <!--Website-->
+ <h5>2. Deine Präsenz im Internet</h5><!--subheading-->
+ <%=f.input :website, :input_html => { :class => "span8" }, :label=>"Webseite", :placeholder=>"http://www.beispiel.de"%>
+ <!--Social Networks-->
+ <%#=f.input :twitter, :label =>"Twitter"%>
+ <%#=f.input :faceook, :label =>"Facebook"%>
+<!--
+Second Block (Addresse)===============-->
+ <h5>3. Wo findet Dein Event statt? </h5>  <!--subheading-->
+ <!--Addresse-->
+ <%= f.input :address, :input_html => { :class => "span8" }, :label => 'Straße  und Hausnummer',:style => "width: 500px",:placeholder=>"Straße und Hausnummer"%>
+ <div class="row-fluid"><!--getting forms in one row-->
+ <div class="span4">
+ <%= f.input :zip_code,:input_html => { :class => "span10" }, :label => 'Postleitzahl', :placeholder=>"PLZ"%></div><!--span4-->
+ <div class="span8">
+ <%= f.input :city, :input_html => { :class => "span12" }, :label => 'Stadt/ Ort',:style => "width: 350px", :placeholder=>"Ort" %></div><!--span-->
+ </div> <!--row-fluid-->
+
+<!--
+Third Block (Time) =====================-->
+ <h5>4. Wann findet Dein Event statt? </h5> <!--subheading-->
+
+   <!--Start Date-->
+ <div class="row-fluid"><!--getting forms in one row-->
+ <div class="span4">
+ <label>Anfangsdatum</label>
+ <%= f.datepicker :start_date,:style => "width: 190px",:placeholder =>'Anfangsdatum', :label =>'Anfangsdatum', :minDate =>'Date.today',:monthNames=>[:Januar, :Februar, :März, :April, :Mai, :Juni, :Juli, :August, :September, :Oktober, :November, :Dezember], :dateFormat =>'d. MM yy'%>
+ </div><!--span-->
+
+   <!--End Date-->
+ <div class="span6">
+ <label>Enddatum</label>
+ <%= f.datepicker :end_date,:style => "width: 190px", :placeholder =>'Enddatum',:label =>'Enddatum', :input_html=> {:width=> 10, :class=>'icon-box-vert-container'}, :minDate =>'Date.today', :dateFormat =>'d. MM yy', :dayNamesShort=>[:Mon, :Die, :Mit, :Don, :Fre, :Sam, :Son], :monthNames=>[:Januar, :Februar, :März, :April, :Mai, :Juni, :Juli, :August, :September, :Oktober, :November, :Dezember]%>
+ </div><!--span-->
+ </div><!--row-fluid-->
+
+<!--
+Fourth Block (Category)==================-->
+ <h5>4. Zu welcher Kategorie gehört Dein Event? </h5> <!--subheading-->
+ <%=f.input :category,:input_html => { :class => "span8"}, :collection => [:Sport,:Musik,:Kunst,:Entertainment,:Finanzen,:StartUp,:Venture_Capital,:Beruf,:Soziales,:Bildung,:Theater,:Andere_Kategorie],  :label => "Kategorie"%>
+
+<!--Submit Button      ====================-->
+ <%= f.submit "Nächster Schritt >>", class: "btn btn-success btn-large pull-right"%>
+ </div><!--span8 offset2-->
+ <% end %>
+
+<div class="span12 margin-top-80"></div>
+<%=render 'layouts/footer'%>
+
+
+
+
+
+
+

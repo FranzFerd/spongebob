@@ -1,0 +1,41 @@
+<!--STEP3 create Event-->
+<%# provide(:title, 'Schritt 3') %>
+
+<!--SUBHEADER-->
+<div class="container">
+
+<!--Main Form Begins-->
+ <div class="span8 offset2">
+ <h1>Für wen ist Dein Event? - Beschreibe Deine Zielgruppe </h1>
+
+<!--Progress Bar Step 3-->
+ <div class="progress">
+ <div class="bar" style="width: 75%;"></div>
+ </div>
+  
+<!--Form Fields Step3-->
+<%= render layout: 'form' do |f| %>
+
+<!--Form-Fields start here-->
+<!--1.Target_Group_Jobs-->
+<h5>In welcher Berufskategorie befindet sich deine Zielgruppe? </h5> <!--subheading-->
+<%=f.input :target_group_jobs,:input_html => { :class => "span6" }, :collection => [:Sport,:Musik,:Kunst,:Entertainment,:Finanzen,:StartUp,:Venture_Capital,:Beruf,:Soziales,:Bildung,:Theater], :label => "Job deiner Zeilgruppe"%>
+
+<h5>Wie alt sind die Besucher deines Events? </h5> <!--subheading-->
+<!--2.Target_Group_Age-->
+<%=f.input :target_group_age,:input_html => { :class => "span6" }, :collection =>0..99, :label => "Alter deiner Zielgruppe"%>
+
+<h5>Welche Ausbildung hat deine Zielgruppe?</h5><!--subheading-->
+<!--3.Target_Group_Eductaion-->
+<%=f.input :target_group_education,:input_html => { :class => "span6" }, :collection =>0..99, :label => "Ausbildung Deiner Zielgruppe"%>
+
+<h5>Wieviele Besucher erwartet dein Event?</h5><!--subheading-->
+<!--4.Attendees-->
+<%=f.input :attendees, :label => "Anzahl erwarteter Teilnehmer", :input_html => { :class => "span1"}%>
+<% end %>
+
+</div><!--span8 offset2-->
+<div class="span12 margin-top-80"></div>
+
+<%=render 'layouts/footer' %>
+

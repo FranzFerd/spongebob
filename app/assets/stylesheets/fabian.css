@@ -1,0 +1,59 @@
+/*Fabians CSS File */
+.text-align-center{
+	text-align:center;
+}
+
+.white{
+	color:#ffffff;
+}
+.offset120 {
+  margin-left: 85px;
+}
+
+.offset20 {
+  margin-left: 20px;
+}
+
+.title-super-size{
+	font-size:58px;
+	padding-top:20px;
+}
+.clearfix2{
+	padding-top:20px;
+}
+
+.text-align-left{
+	text-align:left;
+}
+.welcome-sign-up-now{
+/*	margin-left: 350px;
+	margin-right:350px;
+	margin-bottom:50px;
+	margin-top:30px;
+}/*sign up button-front-page*/
+
+
+.magrin-left-zero{/*is a helper*/
+	margin-left:0px;
+} 
+
+
+
+
+.video-box{ /*is not needed at the moment */
+	-moz-border-radius: 18px;
+-webkit-border-radius: 18px;
+border-radius: 18px;
+/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow: 0px 0px 8px #000000;
+-webkit-box-shadow: 0px 0px 8px #000000;
+box-shadow: 0px 0px 8px #000000;
+/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+opacity: 0.75;
+-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 75);
+/*-ms-filter must come before filter*/
+filter: alpha(opacity = 75);
+/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+/*All filters must be placed together*/
+margin:15 15 15 15px;
+}

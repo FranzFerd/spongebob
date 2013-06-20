@@ -1,0 +1,33 @@
+<!--STEP2 create Event-->
+<%# provide(:title, 'Schritt 2') %>
+<div class="container">
+<!--SUBHEADER-->
+<!--Main Form Begins-->
+ <div class="span8 offset2">
+   <h1>Erzähle uns weitere Details.</h1>
+  <!--Progress Bar Step 2-->
+    <div class="progress">
+    <div class="bar" style="width: 50%;"></div>
+    </div>
+<!--Form Fields Step2-->
+<%= render layout: 'form' do |f| %>
+<!--Form-Fields start here-->
+
+<!--1. Speakers-->
+<h5>1. Sprecher und Ehrengäste </h5><!--subheading-->
+ <%= f.input :speakers, :input_html => { :class => "span8" }, :label => 'Speaker',  hint: '  Liste hier alle Redner und VIP Gäste deines Events' %>
+
+<!--2. Sponsors_known-->
+<h5>2.Hast du bereits Sponsoren?</h5><!--subheading-->
+<%= f.input :sponsors_known, :input_html => { :class => "span8" }, :label => 'Sponsors', hint: ' Liste hier bitte die Sponsoren die sich bereits für dein Event entschieden haben.'%>
+
+<!--3. Zertifikate-->
+<h5>3. Wurde Dein Event Ausgezeichnet? Liste hier die Zertifikate</h5><!--subheading-->
+<%= f.input :certificates, :input_html => { :class => "span8" }, :label => 'Certificates', hint: 'Trage hier bitte nur offiziel anerkannte Zertifikate und Zeugnisse ein.', multiple: true%>
+
+<% end %><!--end of simple_form-->
+</div><!--span8 offset2-->
+
+<div class="span12 margin-top-80"></div>
+<%=render 'layouts/footer'%>
+

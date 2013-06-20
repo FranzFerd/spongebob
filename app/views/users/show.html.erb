@@ -1,0 +1,52 @@
+<%#if @user == current_user%><!--check whether the USer is the Current_USER-->
+<div class="container">
+<h1>Profile USER <small>hhere you find all information about the users</small></h1>
+<div class="row-fluid">
+	<div class="span2">
+		<%#if current_user.avatar.nil?%>
+		<%=image_tag 'missing.png', class:"img-polaroid", style:"200*140"%>
+		<%#else%>
+<%#= image_tag @user.avatar.url(:medium) %>
+</div>
+<div class="span10">
+	<ul class="unstyled">
+		<li><%if @user.name.nil?%><h3><%=link_to "Dein Name hier", edit_user_path%></h3><%else%><h3><%=@user.name%>'s <small>Profil</small></h3><%end%></li>
+		<li>Status: <%#if @user.sponsor_check == true%> Sponsor <%#else%> Eventveranstalter <%#end%><div class="pull-right"><a href="<%=edit_user_path%>" class="white"><i class="icon-pencil icon-white"></i>Editieren</a></div></li>
+		<li>Anschrift: <%#if @user.full_address.nil?%> <%#=link_to "Adresse eintragen", edit_user_path%> <%#else%> <%#=@user.full_address%> <%#end%><div class="pull-right"><a href="/" class="white"><i class="icon-pencil icon-white"></i>Editieren</a></div></li>
+		<!--<li>Plz/ Ort - Land<div class="pull-right"><a href="/" class="white"><i class="icon-pencil icon-white"></i>Editieren</a></div></li>-->
+		<!--<li>Kontakt:<div class="pull-right"><a href="/" class="white"><i class="icon-pencil icon-white"></i>Editieren</a></div></li>-->
+		<li>Telefon: <%#if @user.contact_phone.nil%><%#=link_to "Telephonnummer eintragen", edit_user_path%> <%#else%><%#=@user.contact_phone%><%#end%><div class="pull-right"><a href="/" class="white"><i class="icon-pencil icon-white"></i>Editieren</a></div></li>
+		<li>EMail:<div class="pull-right"><a href="/" class="white"><i class="icon-pencil icon-white"></i>Editieren</a></div></li>
+	</ul>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12">
+<% if @user.events.blank? %> 
+	<h1>Keine Events vorhanden...</h1>
+	<%else%>
+	<h1>Der Nutzer hat folgende Events <small>check em out</small></h1>
+	<%end%>
+
+
+	<ul class="thumbnails">
+		<%@user.events.limit(3).each do |event| %>
+		<li class="span4">
+		 <div class="thumbnail">
+		 <%#link_to image_tag event.avatar.url(:medium), event_path%>
+      <img src="http://placehold.it/280x190" class="img-polaroid">
+      <h3><a href="<%=event_path%>"><%=event.title%></a></h3>
+        <p><%=event.description%></p>
+      <button class="btn btn-primary" type="button">Details sehen</button>
+</div>
+<%end%>
+</ul><!--thumbnails-->
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12 well">
+	<h5>Entdecke weitere Dinge hier...</h5>
+</div>
+<%#else%>
+<%#end%>
+<%=render 'layouts/footer'%>

@@ -1,0 +1,58 @@
+<%if user_signed_in?%><!--signed_in check for User-->
+<!--signed_in header-->
+<header class="navbar">
+<div class="navbar navbar-fixed-top navbar-inverse">
+   <div class="navbar-inner">
+     <div class="container">
+         <a class="brand" href="../">Sponsormag</a><!--Brand-->  
+       <div class="nav-collapse collapse" id="main-menu"><!--Left side-->
+        <ul class="nav" id="main-menu-left">
+          <li><%=link_to "Events", events_path%></li>
+         <li><%#=link_to "So funktioniert's", how_it_works_path%></li>
+        </ul>
+        <ul class="nav pull-right" id="main-menu-right">
+        <li class="dropdown" id="preview-menu">     <!--dropdown-->
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile   <b class="caret"></b></a><!--showing Profile in Menu-->
+        <ul class="dropdown-menu"><!--dropdown menu starts-->
+        <li><%= link_to "Profile", current_user %></li>
+        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+      </ul><!--dropdown ends-->           
+
+<li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li> <!--logout link-->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  </header>
+<%else%>
+-->
+<header class="navbar">
+<div class="navbar navbar-fixed-top navbar-inverse">
+   <div class="navbar-inner">
+     <div class="container">
+         <a class="brand" href="../">Sponsormag</a>
+       <div class="nav-collapse collapse" id="main-menu">
+        <ul class="nav" id="main-menu-left">
+          <li><%#=link_to "Events", events_path%></li>
+         <li><%#=link_to "So funktioniert's", how_it_works_path%></li>
+        </ul>
+        <ul class="nav pull-right" id="main-menu-right">
+        <li><%=link_to "Sign In", new_user_session_path%></li>
+        <li><%=link_to "Registrieren", new_user_registration_path%></li>       
+        </ul>
+       </div>
+     </div>
+   </div>
+ </div>
+</header>
+
+<%end%>
+
+
+
+
+
+
+

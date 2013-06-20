@@ -1,4 +1,70 @@
 Spongebob::Application.routes.draw do
+  devise_for :users
+  
+#deafult page
+root to: 'static_pages#home'
+
+resources :users
+
+resources :events #do
+#resource :offers, only: :show
+#end 
+
+#member do
+#  get 'offer'
+#end
+#end
+resources :event_steps
+
+#Versuch Fabian 
+#namespace :users do
+#resources :users
+# resources :comments 
+#end 
+
+namespace :events do
+resource :offer, only: :show #, controller: :events
+ end 
+  
+
+#routes for USERS
+match '/user',       to: 'users#show'
+match '/user/all', to: 'users#index'
+#match '/edit', to: 'users#edit'
+
+#routes i need for users 
+###1. profile, profile settings
+###2. my events 
+###3. my relationships 
+###4. ...
+
+# difference between user and sponsor 
+###1. similar distinction as above
+
+#routes for static pages 
+###1.faq 
+###2.help
+###3.contact
+###4.terms
+###5.data_rights
+###6.imprint
+###7.prices
+###8. team
+
+#routes for event_steps
+
+#routes for events
+###1.images uploads
+
+
+#routes for payment 
+###1.
+
+
+
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

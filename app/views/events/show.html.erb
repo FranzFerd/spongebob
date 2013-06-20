@@ -1,0 +1,142 @@
+<%=link_to "here", events_offer_path%>
+<div class="well">
+<div class="container">
+<h1><%=@event.title%>                                 <small><%=@event.category%></small></h1>
+<h5><%if @event.start_date == @event.end_date%><%=@event.start_date%><%else%> <%=@event.start_date%> -  <%=@event.end_date%> <%end%></h5>
+<h5><%=@event.city%> - <%=@event.zip_code%>/ Deutschland</h5>
+</div> </div>
+   <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="<%=event_path%>">Übersicht</a></li>  
+          <li><a href="<%#=sponsoroffer_event_path%>">Sponsorangebote</a></li>
+      </ul>
+
+<!--1st Tab-->
+<div id="my-tab-content" class="tab-content">
+<div class="row">
+<div class="span5">
+<h3>Beschreibung   <% if @event.user_id == current_user.id%><small class="pull-right"> <%=link_to 'Editieren', edit_event_path, :controller=>"events_steps"%></small><%else%><%end%></h3>
+<p><%=@event.description%></p>
+</div>
+</div>
+<div class="row">
+<div class="span5">
+<h3>Zielgruppe  <% if @event.user_id == current_user.id%><small class="pull-right"> <%=link_to 'Editieren', edit_event_path, :controller=>"events_steps"%></small><%else%><%end%></h3>
+</div></div>
+<div class="row">
+<div class="span2">
+Berufsgruppe
+</div>
+<div class="span3">
+<%=@event.target_group_jobs%>
+</div>
+</div>
+
+<div class="row">
+<div class="span2">
+Ausbildungsstatus
+</div>
+<div class="span3">
+<%=@event.target_group_education%>
+</div>
+</div>
+
+<div class="row">
+<div class="span2">
+Altersgruppe
+</div>
+<div class="span3">
+<%=@event.target_group_age%>
+</div>
+</div>
+
+<div class="row">
+<div class="span2">
+Anzahl der Teilnehmer
+</div>
+<div class="span3">
+<%=@event.attendees%>
+</div>
+</div>
+<div class="row">
+<div class="span5">
+<h3>Sponsoren Angebot   <% if @event.user_id == current_user.id%><small class="pull-right"> <%#=link_to 'Editieren', edit_event_path"%></small><%else%><%end%></h3>
+</div></div>
+<div class="row">
+<div class="span2">
+Bezeichnung:
+</div>
+<div class="span3">
+<%=@event.sponsorship_level%>
+</div>
+</div>
+<div class="row">
+<div class="span2">
+Sponsorship Deadline:
+</div>
+<div class="span3">
+<%=@event.sponsorship_deadline%>
+</div>
+</div>
+
+<div class="row">
+<div class="span2">
+Preis: (in €)
+</div>
+<div class="span3">
+<%=@event.sponsorship_price%> &euro;
+</div>
+</div>
+
+<div class="row">
+<div class="span2">
+Verfügbar:
+</div>
+<div class="span3">
+<%=@event.sponsorship_offer%>
+</div>
+</div>
+
+<div class="row">
+<div class="span5">
+<h3>Weitere Informationen   <% if @event.user_id == current_user.id%><small class="pull-right"> <%=link_to 'Editieren', edit_event_path, :controller=>"events_steps"%></small><%else%><%end%></h3>
+</div></div>
+<div class="row">
+<div class="span2">
+  Title 1
+</div>
+<div class="span3">
+<%=@event.website%>
+</div>
+</div>
+<div class="row">
+<div class="span2">
+Kontaktperson:
+</div>
+<div class="span3">
+<%=@event.address%>
+</div>
+</div>
+<div class="row">
+<div class="span2">
+Facebook: 
+</div>
+<%#=@event.facebook%>
+</div>
+</div>
+
+<div class="row">
+<div class="span2">
+Twitter: 
+</div>
+<%#=@event.twitter%>
+</div>
+
+
+
+
+
+
+
+  
+

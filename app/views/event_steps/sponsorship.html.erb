@@ -1,0 +1,58 @@
+<!--STEP4 create Event -->
+<%# provide(:title, 'Schritt 4') %>
+
+<!--SUBHEADER-->
+<div class="container">
+
+<!--Main Form Begins-->
+ <div class="span8 offset2">
+   <h1>Was ist Dein Angebot?</h1>
+
+<!--Progress Bar Step 4-->
+ <div class="progress">
+ <div class="bar" style="width: 100%;"></div>
+ </div>
+
+  
+<!--Form Fields Step4-->
+<%= render layout: 'form' do |f| %>
+
+<!--Form Field Usage Details-->
+ <p>Bitte Beschreibe Dein Sponsor Angebot wie ein Produkt. Es ist auch empfehlenswert eine Anzahl der Sponsorenangebote für dein Event darzustellen.</p>
+  
+<!--Form-Fields start here-->
+<!--1. Sponsorship- Deadline-->
+<h5>Wann ist deine Sponsorship Deadline</h5><!--subheading-->
+ <label>Sponsorship- Deadline</label>
+ <%= f.datepicker :sponsorship_deadline,:input_html => { :class => "span1" },:placeholder =>'Sponsorship - Deadline', hint: '  Entscheide hier wie lange dein Angebot zur Verfügung stehen soll.'%>
+
+<!--Sposorship-Offer-->
+<h5>Wieviele Sponsoringangebote stehen zur Verfügung?</h5><!--subheading-->
+ <%= f.input :sponsorship_offer,:label =>'Anzahl verfügbarer Sponsoringangebote',:input_html => { :class => "span1" },  :placeholder=>'1'%>
+
+<!--2.Sponsorship_Level-->
+ <h5>Gebe deinem Angebot einen Namen</h5><!--subheading-->
+ <%=f.input :sponsorship_level, :label=>'Bezeichnung deines Sponsorenangebotes', :placeholder=>'z.B. Premium Sponsor', hint: '  Wähle einen Namen für Dein Angebot',:input_html => { :class => "span8" }%>
+
+<!--3. Sponsorship_Taken-->
+ <h5>Wieviele Sponsoringangebote sidn bereits belegt?</h5><!--subheading-->
+ <%= f.input :sponsorships_taken,:label =>'Bereits belegte Sponsorangebote',:input_html => { :class => "span1" }, :placeholder=>'0' %>
+
+<!--4. Sponsorship_price-->
+ <h5>Wie teuer ist dein Sponsoringangebot?</h5><!--subheading-->
+ <%= f.input :sponsorship_price,:require =>true, :input_html=>{:id=>"prependedInput"}, :label =>'Benenne den Preis eines Sponsoringangebotes in € (Euro)',:input_html => { :class => "span2" },  hint: '€'%>
+
+<!--5. Sponsor Contact-->
+ <h5>Unter welcher Telephonnummer können Sponsoren dich erreichen?</h5><!--subheading-->
+ <%=f.input :contact_phone, :label=>'Trage eine Telefonnummer ein für Deine Sponsoren', :placeholder=>'+49(0)', hint: '  (optional)',:input_html => { :class => "span4" }%>
+
+<!--6. Tax deductible-->
+ <h5>Ist dein Event von der Steuer absetzbar? </h5><!--subheading-->
+<%=f.input :tax_deductible, :input_html => { :class => "span1" }, :collection => [:Ja, :Nein], :label =>'Steuerlich absetzbar?'%>
+
+
+
+<% end %>
+</div><!--span8 offset2-->
+<div class="span12 margin-top-80"></div>
+<%=render 'layouts/footer' %>

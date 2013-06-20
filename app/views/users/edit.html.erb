@@ -1,0 +1,19 @@
+<div class="container">
+
+<%= simple_form_for @user do |f|%>
+  <%= f.error_notification %>
+<hr>
+    <%= f.input :company,:label=>"Unternehmensname", :autofocus => true %>
+    <%= f.input :offer, :label=>"Leistungsangebot", :required => false %>
+    <%#= f.input :about_us, :label=>"Über uns", :required => false %>
+    <%= f.input :employees, :label=>"Anzahl Mitarbeiter",:required => false %>
+    <%=f.input :city, :label=>"Stadt/ Ort", :required=>false%>
+    <%=f.input :zip_code, :label=>"Postleitzahl", :required=>false%>
+    <%#=f.input :address, :label=>"PLZ", :required=>false%>
+    <%=f.input :phone, :label=>"Festnetz", :required=>false%>
+    <%=f.input :fax, :label=>"Fax", :required=>false%>
+  <label>Bild Hochladen</label>
+<%#= f.file_field :avatar, :placeholder=>'Hier Bilder hochladen',:label => 'Image', hint: ' Lade ein Bild hoch zu Deinem Event.'%>    
+ <%= f.submit "Nächster Schritt >>", class: "btn btn-success btn-large"%>
+ 
+<% end %>

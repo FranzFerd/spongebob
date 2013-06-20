@@ -1,0 +1,38 @@
+<div class="container">
+<h2>Alle Events auf einen Blick</h2>
+
+  <div class="row-fluid">
+    <div class="span8">    
+      <table class="table table-condensed table-hover">   
+       <!-- <caption>Liste aller Events</caption>  -->
+        <thead>
+							<tr>
+								<th>Event-<br />Kategorie</th>
+								<th>Titel/<br />Bezeichnung</th>
+                <th>Sponsorangebot/ <br />Budgetrahmen (Eur)</th>
+								<th>Sponsor-<br />deadline</th>
+								<th>Verfügbare<br /> Sponsorings</th>
+								<th>Ort</th>
+							</tr>
+            </thead>
+            <tbody>
+              
+      <% @events.each do |event| %>
+              <tr>									
+							<td><%=event.category%></td>
+							<td><%= link_to event.title, event %></td>
+							<td><%=event.sponsorship_level%><br /><%=event.sponsorship_price%> &euro;</td>
+              <td><%if event.start_date == event.end_date%><%=event.start_date%><%else%><%=event.start_date%><br /><%= event.end_date%><%end%></td>
+							<td><%=event.sponsorship_offer%></td>
+						  <td><%= event.zip_code%> in <%= event.city%> <br /> Deutschland</td>
+						</tr>
+            <% end %>   
+          </tbody>
+          </table>
+<%= will_paginate @events%>
+</div>
+<div class="span2 well">
+    <%= image_tag "http://placehold.it/120x450" %>
+</div>
+</div>
+
